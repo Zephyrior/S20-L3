@@ -11,13 +11,19 @@ public class AdapterRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        LocalDate localDate = LocalDate.of(1990, 5, 15);
-        Date birthDate = Date.from(localDate.atStartOfDay().atZone(java.time.ZoneId.systemDefault()).toInstant());
+//        LocalDate localDate = LocalDate.of(1990, 5, 15);
+//        Date birthDate = Date.from(localDate.atStartOfDay().atZone(java.time.ZoneId.systemDefault()).toInstant());
+//
+//        UserData userData = new UserData();
+//        Info info = new Info("Mario", "Rossi", birthDate);
+//        userData.getData(info);
+//        System.out.println("Nome Completo: " + info.getNomeCompleto());
+//        System.out.println("Età: " + info.getEta());
 
-        UserData userData = new UserData();
-        Info info = new Info("Mario", "Rossi", birthDate);
-        userData.getData(info);
-        System.out.println("Nome Completo: " + info.getNomeCompleto());
-        System.out.println("Età: " + info.getEta());
+        Info info = new Info("Mario", "Rossi", LocalDate.of(1990, 5, 15));
+
+        InfoAdapter adapter = new InfoAdapter(info);
+
+        StampaDataSource.stampaInfo(adapter);
     }
 }
